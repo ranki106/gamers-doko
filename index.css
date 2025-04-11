@@ -1,0 +1,101 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+root {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+section.gamerSelect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 600;
+  color: #1a1a1a;
+  justify-content: center;
+  text-align: center;
+}
+
+.lastVideo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 60px;
+  max-width: 400px;
+  margin-inline: auto;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.lastVideo > p {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #1a1a1a;
+  justify-content: center;
+  text-align: center;
+}
+
+.lastVideo > p > a {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #1a1a1a;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+.lastVideo.korone {
+  background-color: #ffb3b3;
+}
+
+.lastVideo.fubuki {
+  background-color: #ffb3b3;
+}
+
+.lastVideo.mio {
+  background-color: #ffb3b3;
+}
+
+.lastVideo.okayu {
+  background-color: #ffb3b3;
+}
+
