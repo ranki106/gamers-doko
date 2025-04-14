@@ -1,6 +1,6 @@
 export default function LiveClock(props) {
     const date = new Date()
-    const updatedTime = new Date(props.lastVidStartTime.getTime() + props.duration)
+    const updatedTime = new Date(props.lastVidStartTime.getTime() + props.duration * 1000)
     const lastVidTime = props.lastVidStartTime
     console.log("here", updatedTime)
     const timeElapsed = date - updatedTime
