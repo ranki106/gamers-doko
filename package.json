@@ -13,7 +13,9 @@
     "clsx": "^2.1.1",
     "holodex.js": "^2.0.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-fullscreen-loading": "^0.0.4",
+    "react-loading": "^2.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

@@ -42,7 +42,7 @@ export const data = [
         birthday: fubukiBirthday,
         debut: fubukiDebut,
         oshiMark: "🌽",
-        channelID: 'UCGNI4MENvnsymYjKiZwv9eg',
+        channelID: 'UCdn5BQ06XqgXoAxIhbqw5Rg',
     },
     {
         id: 4,
