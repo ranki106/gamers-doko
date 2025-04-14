@@ -9,9 +9,9 @@ export const data = [
         id: 1,
         name: "Inugami Korone",
         backgroundColor: "#FEE039",
-        accentColor1: "#FEBD00",
+        accentColor1: "#FFF9D7",
         accentColor2: "#824600",
-        accentColor3: "#FFF9D7",
+        accentColor3: "#FEBD00",
         japaneseName: "戌神ころね",
         birthday: "October 1",
         debut: "April 13",
@@ -82,8 +82,8 @@ Okayu
 
 Korone
 #FEE039
-#FEBD00
-#824600
 #FFF9D7
+#824600
+#FEBD00
 
 */

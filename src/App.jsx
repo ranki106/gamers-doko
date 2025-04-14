@@ -3,6 +3,7 @@ import { data } from './data.js'
 import LiveClock from './liveClock.jsx'
 import { appText } from "./appText.js"
 import LoadingScreen from './loading.jsx'
+import clsx from 'clsx'
 
 function App() {
   //State variables
@@ -63,12 +64,20 @@ function App() {
   const lastVidURL = `https://www.youtube.com/watch?v=${lastVideo?.id}`
   const lastVidStartTime = new Date(lastVideo?.available_at)
   
+  //update className based on the gamer's id
+  const className = clsx({
+    korone: gamer.id === 1,
+    okayu: gamer.id === 2,
+    fubuki: gamer.id === 3,
+    mio: gamer.id === 4,
+  })
 
   //useEffect to set the background color of the body and check live status
   //when the gamer state changes
   useEffect(() => {
     document.body.style.backgroundColor = gamer.backgroundColor
-    if(ready) document.getElementById('lastVidLink').style.backgroundColor = gamer.accentColor3
+    document.getElementById('loading-screen').style.backgroundColor = gamer.backgroundColor
+    if(ready) document.getElementById('lastVidLink').style.backgroundColor = gamer.accentColor1
     checkLiveStatus()
   }, [gamer])
 
@@ -103,7 +112,9 @@ function App() {
   //main return to display on the page
   return (
     <section>
-      <div className={`loading-screen ${loading ? '' : 'exit'}`} />
+      <div id="loading-screen" className={`loading-screen ${loading ? '' : 'exit'} ${className}`}>
+        <h1>🌽🌲 Gamers Doko 🍙🥐</h1>
+      </div>
       {ready && (
         <>
         <section className="gamerSelect">
@@ -124,6 +135,7 @@ function App() {
             </>  
           : 
             <>
+              <p> {appText[language].lastStream} </p>
               <p>
                 <a href={lastVidURL}>{lastVideo ? lastVideo.title : "Nothing to display!"}</a>
               </p>

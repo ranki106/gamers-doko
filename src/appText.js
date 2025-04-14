@@ -11,6 +11,7 @@ export const appText = {
         about: "🛈 About",
         sourceCode: "Source Code",
         affiliation: "Not affiliated with Hololive Production",
+        lastStream: "Last Stream:",
     },
     "ja": {
         day: "日",
@@ -24,6 +25,7 @@ export const appText = {
         about: "🛈 サイトについて",
         sourceCode: "ソースコード",
         affiliation: "ホロライブプロダクションとは無関係です",
+        lastStream: "最後の配信:",
     }
 
 }
