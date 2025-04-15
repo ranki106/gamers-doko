@@ -27,7 +27,7 @@ export const appText = {
         sourceCode: "ソースコード",
         affiliation: "ホロライブプロダクションとは無関係です",
         lastStream: "最後の配信:",
-        live: "が今配信中！",
+        live: "が現在配信中！",
     }
 
 }

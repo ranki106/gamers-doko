@@ -1,107 +1,158 @@
+/* General Reset and Base */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-root {
-  height: 100%;
-  width: 100%;
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-section.gamerSelect {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-}
-
-h1 {
-  font-size: 2em;
-  font-weight: 600;
-  color: #1a1a1a;
-  justify-content: center;
+/* Title */
+.title {
   text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 20px 0 10px;
+  text-decoration: underline;
 }
 
+/* Gamer Select Buttons */
+.gamerSelect {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.gamerButton {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.gamerButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Last Seen Clock */
+.lastSeen {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 10px 0 20px;
+}
+
+/* Last Video Box */
 .lastVideo {
+  text-align: center;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 90%;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.lastVideo a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.lastVideo p {
+  margin: 10px 0;
+}
+
+/* Footer Info */
+.static-info {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+.static-info a {
+  color: inherit;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+/* Language Dropdown */
+.language-select {
+  background-color: transparent;
+  border: none;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+}
+
+
+.img-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  height: 100px;
-  width: 500px;
-  margin-inline: auto;
-  border-radius: 5px;
-  background-color: white;
+  margin: 0 auto;
+  padding: 0 5px 5px 5px;
 }
 
-.lastVideo > p {
-  font-size: 1.2em;
-  font-weight: 600;
-  color: #1a1a1a;
-  justify-content: center;
-  text-align: center;
-  max-width: 400px;
-  margin: 3px;
+.lastVidThumb {
+  /* max-width: 10%; */
+  border-radius: 15px;
+  height: auto;
+  width: 85%;
+  padding: 0 5px 5px 5px;
+  transition: transform 0.2s ease;
 }
 
-.lastVideo > p > a {
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #1a1a1a;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
+.lastVidThumb:hover {
+  transform: scale(1.05);
 }
 
-.lastVideo.korone {
-  background-color: #ffb3b3;
+.lastVidTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 0 5px 5px 5px;
 }
 
-.lastVideo.fubuki {
-  background-color: #ffb3b3;
-}
+/* Per-gamer color overrides for clarity */
+/* .korone .lastVideo { background-color: #f9b329; }
+.okayu .lastVideo { background-color: #d597ff; }
+.fubuki .lastVideo { background-color: #a3d8f4; }
+.mio .lastVideo { background-color: #f4a9a9; } */
 
-.lastVideo.mio {
-  background-color: #ffb3b3;
-}
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.6rem;
+  }
 
-.lastVideo.okayu {
-  background-color: #ffb3b3;
-}
+  .gamerButton {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
 
+  .lastVideo {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
 
 .loading-screen {
   position: fixed;
@@ -109,8 +160,6 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: yellow;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,92 +167,6 @@ h1 {
   transition: transform 1s ease-out, background-color 1.0s ease;
 }
 
-.loading-screen.korone {
-  background-color: #ffb3b3;
-}
-
-.loading-screen.fubuki {
-  background-color: #ffb3b3;
-}
-
-.loading-screen.mio {
-  background-color: #ffb3b3;
-}
-
-.loading-screen.okayu {
-  background-color: #ffb3b3;
-}
-
 .loading-screen.exit {
   transform: translate(0, 100vh);
 }
-
-
-.static-info {
-  margin-top: 20px;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 300px;
-  margin-inline: auto;
-}
-
-.static-info > p {
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #1a1a1a;
-  justify-content: center;
-  text-align: center;
-  margin: 3px;
-}
-
-.static-info > p > a:hover {
-  text-decoration: underline;
-}
-
-.static-info > p > a {
-  font-size: 0.8em;
-  font-weight: 400;
-  color: #1a1a1a;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-}
-
-.static-info > select {
-  font-size: 0.8em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: transparent;
-  color: black;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  cursor: pointer;
-  margin-bottom: 4px;
-  justify-items: center;
-  text-align: center;
-}
-
-
-.lastSeen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  height: 60px;
-  max-width: 400px;
-  margin-inline: auto;
-  border-radius: 5px;
-  background-color: white;
-}
-
-test {
- color: #43BFEF,
- #AFF1FF,
-  #003B5C,
-  #00B8EA,
-}
-         
