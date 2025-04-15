@@ -25,7 +25,7 @@ export default function LiveClock(props) {
     
     return (
         <div className="lastSeen">
-            <p> {appText[props.language].lastSeen} {days} {appText[props.language].day}, {hours} {appText[props.language].hour}, {minutes} {appText[props.language].minute}, {seconds} {appText[props.language].second} {appText[props.language].ago} </p>
+            <p> {appText[props.language].lastSeen} {days} {appText[props.language].day} {hours} {appText[props.language].hour} {minutes} {appText[props.language].minute} {seconds} {appText[props.language].second} {appText[props.language].ago} </p>
         </div>
     )
 }

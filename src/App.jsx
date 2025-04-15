@@ -127,7 +127,8 @@ function App() {
             gamer={gamer}
             language={language}
           />
-      
+
+        {/* Either shows that the gamer is live or their last stream title */}
         <div id="lastVidLink" className="lastVideo">
           {currentlyLive ? 
             <>
@@ -145,7 +146,7 @@ function App() {
       
       
       
-      
+        {/* The info that is at the bottom of the screen always */}
         <div className="static-info">
           <select onChange={handleLanguageChange} className="language-select"> 
             <option value="en">English / 英語</option>

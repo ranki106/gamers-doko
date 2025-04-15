@@ -12,9 +12,10 @@ export const appText = {
         sourceCode: "Source Code",
         affiliation: "Not affiliated with Hololive Production",
         lastStream: "Last Stream:",
+        live: "is live now!",
     },
     "ja": {
-        day: "日",
+        day: `日`,
         hour: "時間",
         minute: "分",
         second: "秒",
@@ -26,6 +27,7 @@ export const appText = {
         sourceCode: "ソースコード",
         affiliation: "ホロライブプロダクションとは無関係です",
         lastStream: "最後の配信:",
+        live: "が今配信中！",
     }
 
 }
