@@ -16,7 +16,7 @@ export const data = [
     accentColor1: "#F0B800",       // muted amber
     accentColor2: "#D48D00",       // deeper gold
     accentColor3: "#B67600",       // warm, rich brown
-    textColor: "#5C3B00",          // dark brown for contrast
+    textColor: "#5C3B00",          // dark brown
     japaneseName: "戌神ころね",
     birthday: koroneBirthday,
     debut: koroneDebut,
@@ -40,11 +40,11 @@ export const data = [
   {
     id: 3,
     name: "Shirakami Fubuki",
-    backgroundColor: "#81C3E3",    // soft, pastel blue (already approved)
+    backgroundColor: "#81C3E3",    // soft, pastel blue
     accentColor1: "#A7D8E9",       // lighter, pale blue
     accentColor2: "#007B9C",       // muted blue
     accentColor3: "#66B3D9",       // calm, medium blue
-    textColor: "#0A3B53",          // dark navy for contrast
+    textColor: "#0A3B53",          // dark navy
     japaneseName: "白上フブキ",
     birthday: fubukiBirthday,
     debut: fubukiDebut,
@@ -58,7 +58,7 @@ export const data = [
     accentColor1: "#FFB3B3",       // light pinkish-red
     accentColor2: "#D32F2F",       // deep red
     accentColor3: "#9A1A1A",       // rich burgundy
-    textColor: "#5C0A00",          // dark red-brown for contrast
+    textColor: "#5C0A00",          // dark red-brown
     japaneseName: "大神ミオ",
     birthday: mioBirthday,
     debut: mioDebut,

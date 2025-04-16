@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { data } from './data.js'
 import LiveClock from './liveClock.jsx'
+import CountDownClock from './countDownClock.jsx'
 import { appText } from "./appText.js"
 import clsx from 'clsx'
 import Confetti from 'react-confetti'
@@ -12,8 +13,6 @@ function App() {
   const [videos, setVideos] = useState([])
   const [loading, setLoading] = useState(false)
   const [ready, setReady] = useState(true)
-
-  console.log("Gamer: ", videos)
 
   //function to grab the last 25 videos from the Holodex API
   const checkLiveStatus = async () => {
@@ -38,48 +37,88 @@ function App() {
     }
   }
 
-  //create our buttons
-  const buttonStyles = {
-    backgroundColor: 'transparent',
-    border: 'none',
-    color: 'white',
-    fontSize: '20px',
-    cursor: 'pointer',
-    margin: '10px',
-  }
+    //find the last video and the current live video
+    const currentlyLive = videos.find(video => 
+      video.status === 'live'
+    )
+    const currentVidURL = `https://www.youtube.com/watch?v=${currentlyLive?.id}`
+  
+    const lastVideo = videos.find(video =>
+      video.status === 'past'
+    )
+    const lastVidURL = `https://www.youtube.com/watch?v=${lastVideo?.id}`
+    const lastVidStartTime = new Date(lastVideo?.available_at)
+    
+    const upcomingVideos = []
+    videos.forEach(video => {
+      if(video.status === 'upcoming') {
+        upcomingVideos.push(video)
+      } 
+    })
+    function getUpcomingVideos() {
+      if(upcomingVideos.length === 0) {
+        return null
+      } else {
+        let closestDate = new Date(upcomingVideos[0].available_at)
+        let nextVideo = upcomingVideos[0]
+        upcomingVideos.forEach(video => {
+          const date = new Date(video.available_at)
+          if(date < closestDate) {
+            closestDate = date
+            nextVideo = video
+          }
+        })   
+        const today = new Date()
+        const oneMonthLater = new Date(today.getMonth() + 1)
+        if(closestDate <= oneMonthLater) {
+          console.log("here ", closestDate)
+          return null
+        }
+        const nextVidURL = `https://www.youtube.com/watch?v=${nextVideo?.id}`      
+        return (
+            <div className="lastVideo">
+              <CountDownClock 
+                liveIn={closestDate}
+                gamer={gamer}
+                language={language}
+              />
+              <div className="img-container">
+                  <a href={nextVidURL}>
+                    <img className="lastVidThumb" src={`https://img.youtube.com/vi/${nextVideo?.id}/mqdefault.jpg`} alt="Gamer Logo" />
+                  </a>
+                  <p className="lastVidTitle">
+                    <a href={nextVidURL}>{nextVideo ? nextVideo.title : "Nothing to display!"}</a>
+                  </p>
+              </div>
+              
+            </div>
+          )
+        
+      }
+    }
+
+
+ //create our buttons
   const gamersButtons = data.map((item) => {
     return (
       <button
         key={item.id}
         onClick={() => updateGamer(item)}
         className="gamerButton"
-        style={{ backgroundColor: item.backgroundColor }}
+        style={{ backgroundColor: gamer.id === item.id ? item.accentColor2 : item.backgroundColor }}
       >
         {item.oshiMark}
       </button>
     )
   })
 
-  //derived variables from state
-  const currentlyLive = videos.find(video => 
-    video.status === 'live'
-  )
-  const lastVideo = videos.find(video =>
-    video.status === 'past'
-  )
+  function checkBirthdayOrDebut(date) {
+    const today = new Date()
+    const passedIn = new Date(date)
+    const isToday = today.getDate() === passedIn.getDate() && today.getMonth() === passedIn.getMonth()
+    return isToday
+  }
 
-  const lastVidURL = `https://www.youtube.com/watch?v=${lastVideo?.id}`
-  const lastVidStartTime = new Date(lastVideo?.available_at)
-
-  const currentVidURL = `https://www.youtube.com/watch?v=${currentlyLive?.id}`
-  
-  //update className based on the gamer's id
-  const className = clsx({
-    korone: gamer.id === 1,
-    okayu: gamer.id === 2,
-    fubuki: gamer.id === 3,
-    mio: gamer.id === 4,
-  })
 
   //useEffect to set the background color of the body and check live status
   //when the gamer state changes
@@ -97,7 +136,6 @@ function App() {
     setLanguage(selectedLanguage)
   }
 
-
   //function to update the gamer state and set loading state
   //this function is called when the user clicks on a button
   //it also sets a timeout to simulate loading
@@ -112,32 +150,19 @@ function App() {
     setTimeout(() => {
       setGamer(item)
       setReady(true)
-    }, 1000) // 2 seconds delay
+    }, 1000)
 
     setTimeout(() => {
       setLoading(false)
     }, 2000) 
   }
-  
-  //react-youtube settings
-  const opts = {
-    height: '390',
-    width: '640',
-    playerVars: {
-      autoplay: 1,
-      modestbranding: 1,
-      rel: 0,
-      showinfo: 0,
-    },
-  }
-
 
   //main return to display on the page
   return (
     <section>
 
       {/* Loading screen */}
-      <div id="loading-screen" className={`loading-screen ${loading ? '' : 'exit'} ${className}`}>
+      <div id="loading-screen" className={`loading-screen ${loading ? '' : 'exit'}`}>
         <h1>🌽🌲 Gamers Doko 🍙🥐</h1>
       </div>
 
@@ -145,7 +170,17 @@ function App() {
       {ready && (
         <>
           {/* Confetti when the page loads */}
-          
+          {checkBirthdayOrDebut(gamer.birthday) || checkBirthdayOrDebut(gamer.debut) ? 
+            <Confetti 
+              width={window.innerWidth}
+              height={window.innerHeight}
+              numberOfPieces={500}
+              recycle={false}
+              colors={[gamer.accentColor1, gamer.accentColor2, gamer.accentColor3]}
+            /> 
+          : 
+            null
+          }
 
           {/* Buttons at the top of the page */}
           <section className="gamerSelect">
@@ -157,7 +192,6 @@ function App() {
           
           {/* Either shows that the gamer is live or their last stream title */}
           <div id="lastVidLink" className="lastVideo">
-            
             {currentlyLive ?
               <>
                 <p>{language === 'ja' ? `${gamer.japaneseName} ${appText[language].live}` : `${gamer.name} ${appText[language].live}`}</p>
@@ -169,8 +203,8 @@ function App() {
                   <p className="lastVidTitle">
                     <a href={currentVidURL}>{currentlyLive ? currentlyLive.title : "Nothing to display!"}</a>
                   </p>
-              </div>
-            </> 
+                </div>
+              </> 
             :
               <>
                 <LiveClock 
@@ -191,10 +225,10 @@ function App() {
                 </div>
               </>
             }
-            
           </div>
-        
-        
+
+            {getUpcomingVideos()}
+          
         
           {/* The info that is at the bottom of the screen always */}
             <footer className="static-info">

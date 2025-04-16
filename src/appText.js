@@ -13,6 +13,7 @@ export const appText = {
         affiliation: "Not affiliated with Hololive Production",
         lastStream: "Last Stream:",
         live: "is live now!",
+        next: "Next stream in:",
     },
     "ja": {
         day: `日`,
@@ -28,6 +29,7 @@ export const appText = {
         affiliation: "ホロライブプロダクションとは無関係です",
         lastStream: "最後の配信:",
         live: "が現在配信中！",
+        next: "次の配信まで:",
     }
 
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { appText } from "./appText.js"
 
-export default function LiveClock(props) {
-    const updatedTime = new Date(props.lastVidStartTime.getTime() + props.duration * 1000)
+export default function CountDownClock(props) {
+    const updatedTime = new Date(props.liveIn.getTime())
    
     //state needed for the clock, keeps track of each individual component
     const [seconds, setSeconds] = useState(0)
@@ -14,7 +14,7 @@ export default function LiveClock(props) {
     useEffect(() => {
         const updateClock = () => {
             const date = new Date()       
-            const timeElapsed = date - updatedTime
+            const timeElapsed = updatedTime - date
             setSeconds(Math.floor((timeElapsed / 1000) % 60))
             setMinutes(Math.floor((timeElapsed / (1000 * 60)) % 60))
             setHours(Math.floor((timeElapsed / (1000 * 60 * 60)) % 24))
@@ -28,6 +28,8 @@ export default function LiveClock(props) {
     
     //return the time as a p tag
     return (
-            <p> {appText[props.language].lastSeen} {days} {appText[props.language].day} {hours} {appText[props.language].hour} {minutes} {appText[props.language].minute} {seconds} {appText[props.language].second} {appText[props.language].ago} </p>
+        <div className="lastSeen">
+            <p> {appText[props.language].next} {days} {appText[props.language].day} {hours} {appText[props.language].hour} {minutes} {appText[props.language].minute} {seconds} {appText[props.language].second} {appText[props.language].ago} </p>
+        </div>
     )
 }
