@@ -101,21 +101,27 @@ section {
   justify-content: center;
 }
 
+.language-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 25px;
+}
 
 .img-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: center; /* Vertically center the content */
+  justify-content: flex-start; /* Lock the image to the left */
   margin: 0 auto;
   padding: 0 5px 5px 5px;
 }
 
 .lastVidThumb {
-  /* max-width: 10%; */
+  width: 200px; /* Fixed width */
+  height: 112px; /* Fixed height */
+  object-fit: cover; /* Ensures the image fits within the dimensions */
   border-radius: 15px;
-  height: auto;
-  width: 85%;
-  padding: 0 5px 5px 5px;
+  margin-right: 15px; /* Add spacing between image and text */
   transition: transform 0.2s ease;
 }
 
@@ -126,8 +132,8 @@ section {
 .lastVidTitle {
   font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
-  padding: 0 5px 5px 5px;
+  text-align: center; /* Center the text horizontally */
+  flex: 1; /* Allow the text to take up the remaining space */
 }
 
 /* Per-gamer color overrides for clarity */

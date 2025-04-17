@@ -1,0 +1,20 @@
+{
+        "day": "days",
+        "hour": "hours",
+        "minute": "minutes",
+        "second": "seconds",
+        "loading": "Loading...",
+        "time": "{{days}} days {{hours}} hours {{minutes}} minutes {{seconds}} seconds",
+        "doko": "Doko?",
+        "lastSeen": "Last seen ",
+        "ago": " ago",
+        "about": "🛈 About",
+        "sourceCode": "Source Code",
+        "affiliation": "Not affiliated with Hololive Production",
+        "lastStream": "Last Stream",
+        "live": "is live now!",
+        "next": "Next stream",
+        "in": "in",
+        "english": "ENG",
+        "japanese": "日本語"
+}

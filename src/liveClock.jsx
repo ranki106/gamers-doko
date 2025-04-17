@@ -1,26 +1,38 @@
 import { useState, useEffect } from 'react'
 import { appText } from "./appText.js"
+import './i18n.jsx'
+import i18next from "i18next";
+import { useTranslation } from "react-i18next";
+
+
 
 export default function LiveClock(props) {
-    const updatedTime = new Date(props.lastVidStartTime.getTime() + props.duration * 1000)
-   
+
+    const { t } = useTranslation()
+
+    const updatedTime = props.lastVidStartTime //time passed from the parent component
+
     //state needed for the clock, keeps track of each individual component
     const [seconds, setSeconds] = useState(0)
     const [minutes, setMinutes] = useState(0)
     const [hours, setHours] = useState(0)
     const [days, setDays] = useState(0)
 
+    let upOrDown = "up"
+    updatedTime > new Date() ? upOrDown = "down" : upOrDown = "up" //check if the time is in the past or future
+
+    const time = t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days})
+
     //update the clock every second
     useEffect(() => {
         const updateClock = () => {
             const date = new Date()       
-            const timeElapsed = date - updatedTime
+            const timeElapsed = Math.abs(date - updatedTime)
             setSeconds(Math.floor((timeElapsed / 1000) % 60))
             setMinutes(Math.floor((timeElapsed / (1000 * 60)) % 60))
             setHours(Math.floor((timeElapsed / (1000 * 60 * 60)) % 24))
             setDays(Math.floor(timeElapsed / (1000 * 60 * 60 * 24)))
         }
-
         updateClock()
         const interval = setInterval(updateClock, 1000)
         return () => clearInterval(interval)
@@ -28,6 +40,9 @@ export default function LiveClock(props) {
     
     //return the time as a p tag
     return (
-            <p> {appText[props.language].lastSeen} {days} {appText[props.language].day} {hours} {appText[props.language].hour} {minutes} {appText[props.language].minute} {seconds} {appText[props.language].second} {appText[props.language].ago} </p>
-    )
+        <>  
+        <p className="liveClock">  </p>
+            <p> {upOrDown === "up" ? t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days}) + t("ago") : t("in") + " " + t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days})}</p>
+        </>
+        )
 }

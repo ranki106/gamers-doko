@@ -10,7 +10,7 @@ const mioDebut = new Date(currentYear, 11, 7)
 
 export const data = [
   {
-    id: 1,
+    id: 'korone',
     name: "Inugami Korone",
     backgroundColor: "#F9E08D",    // softened, warm yellow-beige
     accentColor1: "#F0B800",       // muted amber
@@ -24,7 +24,7 @@ export const data = [
     channelID: 'UChAnqc_AY5_I3Px5dig3X1Q',
   },
   {
-    id: 2,
+    id: 'okayu',
     name: "Nekomata Okayu",
     backgroundColor: "#A37FEC",    // soft lavender
     accentColor1: "#D091F7",       // pastel pink
@@ -38,7 +38,7 @@ export const data = [
     channelID: 'UCvaTdHTWBGv3MKj3KVqJVCw',
   },
   {
-    id: 3,
+    id: 'fubuki',
     name: "Shirakami Fubuki",
     backgroundColor: "#81C3E3",    // soft, pastel blue
     accentColor1: "#A7D8E9",       // lighter, pale blue
@@ -52,7 +52,7 @@ export const data = [
     channelID: 'UCdn5BQ06XqgXoAxIhbqw5Rg',
   },
   {
-    id: 4,
+    id: 'mio',
     name: "Ookami Mio",
     backgroundColor: "#E57373",    // soft, muted red
     accentColor1: "#FFB3B3",       // light pinkish-red
