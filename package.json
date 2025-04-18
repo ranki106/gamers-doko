@@ -28,6 +28,7 @@
     "react-fullscreen-loading": "^0.0.4",
     "react-i18next": "^15.4.1",
     "react-loading": "^2.0.3",
+    "react-router-dom": "^7.5.1",
     "react-tabs": "^6.1.0",
     "react-timeago": "^8.2.0",
     "react-youtube": "^10.1.0"

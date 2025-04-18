@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import { appText } from "./appText.js"
-import './i18n.jsx'
-import i18next from "i18next";
+import '../i18n.jsx'
 import { useTranslation } from "react-i18next";
 
 
@@ -20,8 +18,6 @@ export default function LiveClock(props) {
 
     let upOrDown = "up"
     updatedTime > new Date() ? upOrDown = "down" : upOrDown = "up" //check if the time is in the past or future
-
-    const time = t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days})
 
     //update the clock every second
     useEffect(() => {

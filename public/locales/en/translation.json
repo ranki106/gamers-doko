@@ -16,5 +16,19 @@
         "next": "Next stream",
         "in": "in",
         "english": "ENG",
-        "japanese": "日本語"
-}
+        "japanese": "日本語",
+        "about.title": "About Gamers Doko",
+        "about.description": "Gamers Doko is a simple website designed to help fans of Hololive Gamers track their favorite members whereabouts. It shows who is currently live, when they last streamed, and when their next stream is scheduled.",
+        "about.disclaimer": "This project is not affiliated with Hololive Production. It is a fan-made project created for fun and learning purposes.",
+        "about.sourceCode": "You can find the source code for this project on",
+        "about.returnHome": "Return home",
+        "about.credits": "Credits",
+        "about.credits.blurb": "This project was made possible by the following people:",
+        "about.credits.artist": "Illustration by エスフィ",
+        "about.credits.translator": "Japanese Translation by Zach",
+        "about.credits.api": "Data API for fetching stream data by: ",
+        "about.credits.inspriation": "Huge thanks to the AmeDoko and IMissShiori teams for their amazing work and inspiration for this project.",
+        "about.creator": "Created by Zach"
+        
+
+} 

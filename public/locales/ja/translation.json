@@ -8,7 +8,18 @@
     "doko": "どこ？",
     "lastSeen": "最後の配信",
     "ago": "",
-    "about": "🛈 サイトについて",
+    "about.title": "Gamers Dokoについて",
+    "about.description": "Gamers Dokoは、ホロライブゲーマーズのファンが好きなメンバーを追跡するのを助けるために設計されたシンプルなウェブサイトです。現在ライブ中のメンバー、最後に配信した時間、次の配信予定を表示します。",
+    "about.disclaimer": "このプロジェクトはホロライブプロダクションとは無関係です。これは楽しみと学習目的で作成されたファンプロジェクトです。",
+    "about.sourceCode": "このプロジェクトのソースコードは",
+    "about.returnHome": "ホームに戻る",
+    "about.credits": "クレジット",
+    "about.credits.blurb": "このプロジェクトは以下の人々のおかげで実現しました:",
+    "about.creator": "作成と開発者: Zach",
+    "about.credits.artist": "イラストレーター: エスフィ",
+    "about.credits.translator": "日本語翻訳: Zach",
+    "about.credits.api": "ストリームデータ取得API: ",
+    "about.credits.inspriation": "AmeDokoとIMissShioriチームの素晴らしい仕事とこのプロジェクトへのインスピレーションに大感謝。",
     "sourceCode": "ソースコード",
     "affiliation": "ホロライブプロダクションとは無関係です",
     "lastStream": "最後の配信",
@@ -17,4 +28,5 @@
     "in": "あと",
     "english": "ENG",
     "japanese": "日本語"
+
 }
