@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 import '../i18n.jsx'
 import { useTranslation } from "react-i18next";
 
-
-
 export default function LiveClock(props) {
 
     const { t } = useTranslation()

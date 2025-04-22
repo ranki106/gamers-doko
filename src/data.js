@@ -22,6 +22,10 @@ export const data = [
     debut: koroneDebut,
     oshiMark: "🥐",
     channelID: 'UChAnqc_AY5_I3Px5dig3X1Q',
+    offlineImg: "src/assets/k_offline.webp",
+    offlineImgAlt: "Inugami Korone offline image",
+    onlineImg: "src/assets/f_online.webp",
+    onlineImgAlt: "Inugami Korone streaming image",
   },
   {
     id: 'okayu',
@@ -36,6 +40,10 @@ export const data = [
     debut: okayuDebut,
     oshiMark: "🍙",
     channelID: 'UCvaTdHTWBGv3MKj3KVqJVCw',
+    offlineImg: "src/assets/o_offline.webp",
+    offlineImgAlt: "Nekomata Okayu offline image",
+    onlineImg: "src/assets/m_online.webp",
+    onlineImgAlt: "Nekomata Okayu streaming image",
   },
   {
     id: 'fubuki',
@@ -50,6 +58,10 @@ export const data = [
     debut: fubukiDebut,
     oshiMark: "🌽",
     channelID: 'UCdn5BQ06XqgXoAxIhbqw5Rg',
+    offlineImg: "src/assets/k_offline.webp",
+    offlineImgAlt: "Shirakami Fubuki offline image",
+    onlineImg: "src/assets/f_online.webp",
+    onlineImgAlt: "Shirakami Fubuki streaming image",
   },
   {
     id: 'mio',
@@ -64,5 +76,9 @@ export const data = [
     debut: mioDebut,
     oshiMark: "🌲",
     channelID: 'UCp-5t9SrOQwXMU7iIjQfARg',
+    offlineImg: "src/assets/o_offline.webp",
+    offlineImgAlt: "Ookami Mio offline image",
+    onlineImg: "src/assets/m_online.webp",
+    onlineImgAlt: "Ookami Mio streaming image",
   },
 ]

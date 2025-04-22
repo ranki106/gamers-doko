@@ -8,6 +8,7 @@ import '../i18n.jsx';
 import { useTranslation } from 'react-i18next';
 import BottomElements from '../components/bottomElements.jsx';
 import VideoContainer from '../components/videoContainer.jsx';
+import Images from '../components/images.jsx';
 
 function Home({ language, onLanguageChange }) {
   const { t } = useTranslation();
@@ -194,17 +195,30 @@ function Home({ language, onLanguageChange }) {
           {language === 'ja' ? gamer.japaneseName : gamer.name + " "}
           {t("doko")}
         </h1>
+
+        
+
         {currentlyLive ? (
-          <VideoContainer
-            name={language === 'ja' ? gamer.japaneseName : gamer.name + " "}
-            video={currentlyLive}
-            backgroundColor={gamer.accentColor1}
-          />
+          <>
+            <Images
+              imgSrc={gamer.onlineImg}
+            />
+            <VideoContainer
+              name={language === 'ja' ? gamer.japaneseName : gamer.name + " "}
+              video={currentlyLive}
+              backgroundColor={gamer.accentColor1}
+            />
+          </>
         ) : (
-          <VideoContainer
-            video={lastVideo}
-            backgroundColor={gamer.accentColor1}
-          />
+          <>
+            <Images
+              imgSrc={gamer.offlineImg}
+            />
+            <VideoContainer
+              video={lastVideo}
+              backgroundColor={gamer.accentColor1}
+            />
+          </>
         )}
         {getUpcomingVideos()}
         <BottomElements 
