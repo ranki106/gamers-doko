@@ -36,7 +36,21 @@ export default function LiveClock(props) {
     return (
         <>  
         <p className="liveClock">  </p>
-            <p> {upOrDown === "up" ? t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days}) + t("ago") : t("in") + " " + t("time", {seconds: seconds, minutes: minutes, hours: hours, days: days})}</p>
+            <p> 
+                {upOrDown === "up" ? 
+                    (days != 0 ? t("day", {days: days}) : "") + " " + 
+                    (hours != 0 ? t("hour", {hours: hours}) : "") + " " +
+                    (minutes != 0 ? t("minute", {minutes: minutes}) : "") + " " +
+                    (seconds != 0 ? t("second", {seconds: seconds}) : "") + " " +
+                    t("ago") 
+                : 
+                    t("in") + " " + 
+                    (days != 0 ? t("day", {days: days}) : "") + " " + 
+                    (hours != 0 ? t("hour", {hours: hours}) : "") + " " +
+                    (minutes != 0 ? t("minute", {minutes: minutes}) : "") + " " +
+                    (seconds != 0 ? t("second", {seconds: seconds}) : "") + " "
+                } 
+            </p>
         </>
         )
 }

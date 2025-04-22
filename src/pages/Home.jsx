@@ -114,7 +114,6 @@ function Home({ language, onLanguageChange }) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
           height: '64px',
           paddingX: 2,
         }}
@@ -129,7 +128,6 @@ function Home({ language, onLanguageChange }) {
               alignItems: 'flex-end',
               backgroundColor: '#f5f5f5',
               borderRadius: '12px 12px 0 0',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
               minHeight: '64px',
             }}
           >
@@ -147,7 +145,6 @@ function Home({ language, onLanguageChange }) {
                   minWidth: '50px',
                   height: '100%',
                   textTransform: 'none',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
                   '&:hover': {
                     transform: 'scale(1.05)',
                     transition: 'transform 0.2s ease',
