@@ -218,9 +218,9 @@ function Home({ language, onLanguageChange }) {
               video={lastVideo}
               backgroundColor={gamer.accentColor1}
             />
+            {getUpcomingVideos()}
           </>
-        )}
-        {getUpcomingVideos()}
+        )}        
         <BottomElements 
           gamer={gamer}
           language={language}
