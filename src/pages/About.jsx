@@ -33,8 +33,6 @@ function About({ language, onLanguageChange }) {
             <p>{t('about.credits.api')} <a target="_blank" href="https://docs.holodex.net" rel="noopener noreferrer"> HoloDex</a></p>
             <p>{t('about.credits.inspriation')}</p>
 
-            <p>https://docs.holodex.net</p>
-
             <BottomElements />
         </section>
     );
