@@ -6,7 +6,7 @@ export default function BottomElements(props) {
     
     return (
         <footer className="static-info">
-          <p> {t("affiliation")} </p>
+          
           {props.gamer ? <p>
             <a href={`https://www.youtube.com/channel/${props.gamer.channelID}`}>
               {props.language === 'ja' ? props.gamer.japaneseName : props.gamer.name} ch.
@@ -18,6 +18,7 @@ export default function BottomElements(props) {
           <p>
             <a href="https://github.com/ranki106/gamers-doko">{t("sourceCode")}</a>
           </p>
+          <p> {t("affiliation")} </p>
         </footer>
     )
 }
