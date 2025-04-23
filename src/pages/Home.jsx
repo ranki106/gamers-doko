@@ -193,8 +193,6 @@ function Home({ language, onLanguageChange }) {
           {t("doko")}
         </h1>
 
-        
-
         {currentlyLive ? (
           <>
             <Images
