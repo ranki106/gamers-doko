@@ -10,4 +10,5 @@ i18next.use(LanguageDetector).use(Backend).use(initReactI18next).init({
   backend: {
     loadPath: '/locales/{{lng}}/{{ns}}.json', // Ensures correct loading path
   },
+  compatibilityJSON: 'v3',
 });

@@ -16,8 +16,9 @@ function About({ language, onLanguageChange }) {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>{t('about.returnHome')}</Link>
                 <select value={language} onChange={onLanguageChange} className="language-select">
-                    <option value="en">{t('english')}</option>
+                    <option value="en-US">{t('english')}</option>
                     <option value="ja">{t('japanese')}</option>
+                    <option value="id">{t('indonesian')}</option>
                 </select>
             </div>
             
@@ -30,6 +31,7 @@ function About({ language, onLanguageChange }) {
             <p>{t('about.creator')} - X: <a target="_blank" href="https://www.twitter.com/slaphappypuppy1" rel="noopener noreferrer"> @slaphappypuppy1</a></p>
             <p>{t('about.credits.artist')} - X: <a target="_blank" href="https://www.twitter.com/village0225NK" rel="noopener noreferrer"> @village0225NK</a></p>
             <p>{t('about.credits.translator')} - X: <a target="_blank" href="https://www.twitter.com/slaphappypuppy1" rel="noopener noreferrer"> @slaphappypuppy1</a></p>
+            <p>{t('about.credits.translator.id')} - X: <a target="_blank" href="https://www.twitter.com/jjQlLlLq" rel="noopener noreferrer"> @jjQlLlLq</a></p>
             <p>{t('about.credits.api')} <a target="_blank" href="https://docs.holodex.net" rel="noopener noreferrer"> HoloDex</a></p>
             <p>{t('about.credits.inspriation')}</p>
 

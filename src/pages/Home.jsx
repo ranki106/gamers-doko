@@ -21,6 +21,14 @@ function Home({ language, onLanguageChange }) {
     mio: [],
   });
 
+  const [lastVidStats, setLastVidStats] = useState({
+    korone: {},
+    okayu: {},
+    fubuki: {},
+    mio: {},
+  });
+
+
   const checkLiveStatus = async () => {
     if (videos[gamer.id].length !== 0) {
       return;
@@ -28,7 +36,7 @@ function Home({ language, onLanguageChange }) {
 
     const channelID = gamer.channelID;
     const API_KEY = import.meta.env.VITE_HOLODEX_API_KEY;
-    const url = `https://holodex.net/api/v2/channels/${channelID}/videos`;
+    const url = `https://holodex.net/api/v2/channels/${channelID}/videos?page=25`;
     try {
       const response = await fetch(url, {
         headers: {
@@ -58,6 +66,27 @@ function Home({ language, onLanguageChange }) {
       upcomingVideos.push(video);
     }
   });
+
+  const grabStats = async () => {
+    if(lastVidStats[gamer.id] && lastVidStats[gamer.id].length > 0) {
+      return;
+    }
+    const videoID = lastVideo?.id;
+    try {
+      const response = await fetch(`/api/stats/${videoID}`)
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`)
+      }
+      const data = await response.json()
+      console.log(data.items[0].statistics)
+      setLastVidStats((prevState) => ({
+        ...prevState,
+        [gamer.id]: data.items[0].statistics,
+      }));
+    } catch (err) {
+      console.error('Failed to fetch stats from YouTube:', err);
+    }
+  }
 
   function getUpcomingVideos() {
     if (upcomingVideos.length === 0) {
@@ -100,6 +129,12 @@ function Home({ language, onLanguageChange }) {
     document.body.style.color = gamer.textColor;
     checkLiveStatus();
   }, [gamer]);
+
+  useEffect(() => {
+    if(videos[gamer.id] && videos[gamer.id].length > 0) {
+      grabStats();
+    }
+  }, [videos, gamer]);
 
   return (
     <section>
@@ -170,8 +205,9 @@ function Home({ language, onLanguageChange }) {
             className="language-select"
             style={{ marginRight: '1rem' }}
           >
-            <option value="en">{t('english')}</option>
+            <option value="en-US">{t('english')}</option>
             <option value="ja">{t('japanese')}</option>
+            <option value="id">{t('indonesian')}</option>
           </select>
         </Box>
       </Box>
@@ -192,7 +228,7 @@ function Home({ language, onLanguageChange }) {
           {language === 'ja' ? gamer.japaneseName : gamer.name + " "}
           {t("doko")}
         </h1>
-
+        
         {currentlyLive ? (
           <>
             <Images
@@ -212,6 +248,8 @@ function Home({ language, onLanguageChange }) {
             <VideoContainer
               video={lastVideo}
               backgroundColor={gamer.accentColor1}
+              lastVidStats={lastVidStats[gamer.id]}
+              stats={lastVidStats[gamer.id]}
             />
             {getUpcomingVideos()}
           </>
