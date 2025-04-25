@@ -21,14 +21,6 @@ function Home({ language, onLanguageChange }) {
     mio: [],
   });
 
-  const [lastVidStats, setLastVidStats] = useState({
-    korone: {},
-    okayu: {},
-    fubuki: {},
-    mio: {},
-  });
-
-
   const checkLiveStatus = async () => {
     if (videos[gamer.id].length !== 0) {
       return;
@@ -66,28 +58,6 @@ function Home({ language, onLanguageChange }) {
       upcomingVideos.push(video);
     }
   });
-
-  //scrapped function for comments likes and views for the last video 
-  // const grabStats = async () => {
-  //   if(lastVidStats[gamer.id] && lastVidStats[gamer.id].length > 0) {
-  //     return;
-  //   }
-  //   const videoID = lastVideo?.id;
-  //   try {
-  //     const response = await fetch(`/api/videoId/${videoID}`)
-  //     if (!response.ok) {
-  //       throw new Error(`Error: ${response.status}`)
-  //     }
-  //     const data = await response.json()
-  //     console.log(data.items[0].statistics)
-  //     setLastVidStats((prevState) => ({
-  //       ...prevState,
-  //       [gamer.id]: data.items[0].statistics,
-  //     }));
-  //   } catch (err) {
-  //     console.error('Failed to fetch stats from YouTube:', err);
-  //   }
-  // }
 
   function getUpcomingVideos() {
     if (upcomingVideos.length === 0) {
@@ -130,12 +100,6 @@ function Home({ language, onLanguageChange }) {
     document.body.style.color = gamer.textColor;
     checkLiveStatus();
   }, [gamer]);
-
-  useEffect(() => {
-    if(videos[gamer.id] && videos[gamer.id].length > 0) {
-      grabStats();
-    }
-  }, [videos, gamer]);
 
   return (
     <section>
