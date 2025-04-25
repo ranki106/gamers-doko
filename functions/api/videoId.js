@@ -1,4 +1,4 @@
-export async function onRequestStats(context) {
+export async function onRequest(context) {
     const videoId = context.params.videoId;
     const API_KEY = context.env.YOUTUBE_API_KEY;
     const url = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${API_KEY}`;
