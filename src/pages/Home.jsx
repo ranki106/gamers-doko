@@ -73,7 +73,7 @@ function Home({ language, onLanguageChange }) {
     }
     const videoID = lastVideo?.id;
     try {
-      const response = await fetch(`/api/stats/${videoID}`)
+      const response = await fetch(`/api/${videoID}`)
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`)
       }
