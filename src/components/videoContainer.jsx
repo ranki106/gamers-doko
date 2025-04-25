@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import '../i18n.jsx';
 import LiveClock from './liveClock.jsx';
 
-export default function VideoContainer({ video, name, backgroundColor, stats }) {
+export default function VideoContainer({ video, name, backgroundColor }) {
     const { t } = useTranslation();
     const URL = `https://www.youtube.com/watch?v=${video?.id}`;
     return (
@@ -23,7 +23,6 @@ export default function VideoContainer({ video, name, backgroundColor, stats }) 
                     <a href={URL}>{video ? video?.title : 'Nothing to display!'}</a>
                 </p>
                 </div>
-                {/*stats ? <p> 💬 {stats.commentCount} ♥️ {stats.likeCount} 👀 {stats.viewCount}</p> : null*/}
             </>
             :
             <p> {t('loading')}</p>

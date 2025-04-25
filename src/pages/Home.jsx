@@ -213,7 +213,6 @@ function Home({ language, onLanguageChange }) {
             <VideoContainer
               video={lastVideo}
               backgroundColor={gamer.accentColor1}
-              lastVidStats={lastVidStats[gamer.id]}
               stats={lastVidStats[gamer.id]}
             />
             {getUpcomingVideos()}
