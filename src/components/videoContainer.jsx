@@ -23,7 +23,7 @@ export default function VideoContainer({ video, name, backgroundColor, stats }) 
                     <a href={URL}>{video ? video?.title : 'Nothing to display!'}</a>
                 </p>
                 </div>
-                {stats ? <p> 💬 {stats.commentCount} ♥️ {stats.likeCount} 👀 {stats.viewCount}</p> : null}
+                {/*stats ? <p> 💬 {stats.commentCount} ♥️ {stats.likeCount} 👀 {stats.viewCount}</p> : null*/}
             </>
             :
             <p> {t('loading')}</p>

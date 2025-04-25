@@ -67,26 +67,27 @@ function Home({ language, onLanguageChange }) {
     }
   });
 
-  const grabStats = async () => {
-    if(lastVidStats[gamer.id] && lastVidStats[gamer.id].length > 0) {
-      return;
-    }
-    const videoID = lastVideo?.id;
-    try {
-      const response = await fetch(`/api/videoId/${videoID}`)
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`)
-      }
-      const data = await response.json()
-      console.log(data.items[0].statistics)
-      setLastVidStats((prevState) => ({
-        ...prevState,
-        [gamer.id]: data.items[0].statistics,
-      }));
-    } catch (err) {
-      console.error('Failed to fetch stats from YouTube:', err);
-    }
-  }
+  //scrapped function for comments likes and views for the last video 
+  // const grabStats = async () => {
+  //   if(lastVidStats[gamer.id] && lastVidStats[gamer.id].length > 0) {
+  //     return;
+  //   }
+  //   const videoID = lastVideo?.id;
+  //   try {
+  //     const response = await fetch(`/api/videoId/${videoID}`)
+  //     if (!response.ok) {
+  //       throw new Error(`Error: ${response.status}`)
+  //     }
+  //     const data = await response.json()
+  //     console.log(data.items[0].statistics)
+  //     setLastVidStats((prevState) => ({
+  //       ...prevState,
+  //       [gamer.id]: data.items[0].statistics,
+  //     }));
+  //   } catch (err) {
+  //     console.error('Failed to fetch stats from YouTube:', err);
+  //   }
+  // }
 
   function getUpcomingVideos() {
     if (upcomingVideos.length === 0) {
